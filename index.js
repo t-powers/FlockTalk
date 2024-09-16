@@ -1,2 +1,2 @@
-import { flockData } from "data.js";
+import { flockData } from "./data.js";
 console.log(flockData);

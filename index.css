@@ -36,7 +36,7 @@ header{
     padding-bottom: 25px;
 }
 
-.tweet-input-area {
+.flock-input-area {
     display: flex;
     align-items: flex-start;
     gap: 10px;
