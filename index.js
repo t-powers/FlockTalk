@@ -9,7 +9,7 @@ flockBtn.addEventListener("click", () => {
 
 function getFeedHtml() {
   let feedHtml = ``;
-  flockData.forEach(function(flock){
+  flockData.forEach(function (flock) {
     feedHtml += `<div class="tweet">
     <div class="tweet-inner">
         <img src="${flock.profilePic}" class="profile-pic"/>
@@ -31,7 +31,6 @@ function getFeedHtml() {
     </div>
 </div>
 `;
-  })
-  console.log(feedHtml);
+  });
+  return feedHtml;
 }
-getFeedHtml()
