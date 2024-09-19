@@ -2,6 +2,7 @@ import { flockData } from "./data.js";
 
 const flockInput = document.getElementById("flock-input");
 const flockBtn = document.getElementById("flock-btn");
+const feed = document.getElementById("feed");
 
 flockBtn.addEventListener("click", () => {
   console.log(flockInput.value);
@@ -34,3 +35,5 @@ function getFeedHtml() {
   });
   return feedHtml;
 }
+
+function renderFeed() {}
