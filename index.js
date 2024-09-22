@@ -18,13 +18,16 @@ function getFeedHtml() {
             <p class="tweet-text">${flock.tweetText}</p>
             <div class="tweet-details">
                 <span class="tweet-detail">
-                    ${flock.replies.length}
+                  <i class="fa-regular fa-comment-dots" data-reply=${flockData.uuid}></i>
+                  ${flock.replies.length}
                 </span>
                 <span class="tweet-detail">
-                    ${flock.likes}
+                  <i class="fa-solid fa-heart" data-reply=${flockData.uuid}></i>
+                  ${flock.likes}
                 </span>
                 <span class="tweet-detail">
-                    ${flock.retweets}
+                  <i class="fa-regular fa-retweet" data-reply=${flockData.uuid}></i>
+                  ${flock.retweets}
                 </span>
             </div>   
         </div>            
