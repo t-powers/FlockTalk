@@ -8,7 +8,7 @@ flockBtn.addEventListener("click", () => {
 });
 
 document.addEventListener("click", (e) => {
-  console.log(e.target.dataset);
+  console.log(e.target.dataset.like);
 });
 
 function getFeedHtml() {
@@ -24,7 +24,7 @@ function getFeedHtml() {
                 <span class="tweet-detail">
                   <i class="
                       fa-regular fa-comment-dots" 
-                      data-reply=${flockData.uuid}>
+                      data-reply=${flock.uuid}>
                   </i>
                   ${flock.replies.length}
                 </span>
@@ -32,14 +32,14 @@ function getFeedHtml() {
                   <i 
                     class="
                       fa-solid fa-heart" 
-                      data-like=${flockData.uuid}>
+                      data-like=${flock.uuid}>
                   </i>
                   ${flock.likes}
                 </span>
                 <span class="tweet-detail">
                   <i class="
                     fa-solid fa-retweet" 
-                    data-share=${flockData.uuid}>
+                    data-share=${flock.uuid}>
                   </i>
                   ${flock.retweets}
                 </span>
