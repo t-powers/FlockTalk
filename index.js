@@ -26,7 +26,7 @@ function getFeedHtml() {
                   ${flock.likes}
                 </span>
                 <span class="tweet-detail">
-                  <i class="fa-regular fa-retweet" data-reply=${flockData.uuid}></i>
+                  <i class="fa-solid fa-retweet" data-reply=${flockData.uuid}></i>
                   ${flock.retweets}
                 </span>
             </div>   
