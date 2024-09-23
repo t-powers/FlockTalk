@@ -8,8 +8,14 @@ flockBtn.addEventListener("click", () => {
 });
 
 document.addEventListener("click", (e) => {
-  console.log(e.target.dataset.like);
+  if (e.target.dataset.like) {
+    handleLikeClicks(e.target.dataset.like);
+  }
 });
+
+function handleLikeClicks(tweetID) {
+  console.log(tweetID);
+}
 
 function getFeedHtml() {
   let feedHtml = ``;
