@@ -15,7 +15,7 @@ document.addEventListener("click", (e) => {
 
 function handleLikeClicks(tweetID) {
   const targetTweetObj = flockData.filter(function(tweet){
-    
+    return tweet.uuid === tweetID;
   })
   
 }
