@@ -14,7 +14,10 @@ document.addEventListener("click", (e) => {
 });
 
 function handleLikeClicks(tweetID) {
-  console.log(tweetID);
+  const targetTweetObj = flockData.filter(function(tweet){
+    
+  })
+  
 }
 
 function getFeedHtml() {
