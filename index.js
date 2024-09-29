@@ -14,10 +14,11 @@ document.addEventListener("click", (e) => {
 });
 
 function handleLikeClicks(tweetID) {
-  const targetTweetObj = flockData.filter(function(tweet){
+  const targetTweetObj = flockData.filter(function (tweet) {
     return tweet.uuid === tweetID;
-  })
-  
+  })[0];
+  targetTweetObj.likes++;
+  console.log(targetTweetObj);
 }
 
 function getFeedHtml() {
