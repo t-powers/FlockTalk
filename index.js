@@ -17,7 +17,13 @@ function handleLikeClicks(tweetID) {
   const targetTweetObj = flockData.filter(function (tweet) {
     return tweet.uuid === tweetID;
   })[0];
-  targetTweetObj.likes++;
+  if (targetTweetObj.isLiked) {
+    targetTweetObj.likes--;
+  } else {
+    targetTweetObj.likes++;
+  }
+  targetTweetObj.isLiked = !targetTweetObj.isLiked;
+
   renderFeed();
 }
 
