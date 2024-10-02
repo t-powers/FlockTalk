@@ -10,8 +10,8 @@ flockBtn.addEventListener("click", () => {
 document.addEventListener("click", (e) => {
   if (e.target.dataset.like) {
     handleLikeClicks(e.target.dataset.like);
-  } else if (e.target.dataset.retweets) {
-    handleRetweetClick(e.target.dataset.retweets);
+  } else if (e.target.dataset.retweet) {
+    handleRetweetClick(e.target.dataset.retweet);
   }
 });
 
@@ -30,9 +30,9 @@ function handleLikeClicks(tweetID) {
   renderFeed();
 }
 
-function handleRetweetClick(tweetID) {
-  const targetTweetObj = flockData.filter(function (tweet) {
-    return tweet.uuid === tweetID;
+function handleRetweetClick(tweetId) {
+  const targetTweetObj = tweetsData.filter(function (tweet) {
+    return tweet.uuid === tweetId;
   })[0];
 
   if (targetTweetObj.isRetweeted) {
@@ -41,7 +41,6 @@ function handleRetweetClick(tweetID) {
     targetTweetObj.retweets++;
   }
   targetTweetObj.isRetweeted = !targetTweetObj.isRetweeted;
-
   renderFeed();
 }
 
