@@ -10,6 +10,8 @@ flockBtn.addEventListener("click", () => {
 document.addEventListener("click", (e) => {
   if (e.target.dataset.like) {
     handleLikeClicks(e.target.dataset.like);
+  } else if (e.target.dataset.retweets) {
+    handleRetweetClick(e.target.dataset.retweets);
   }
 });
 
@@ -25,6 +27,12 @@ function handleLikeClicks(tweetID) {
   targetTweetObj.isLiked = !targetTweetObj.isLiked;
 
   renderFeed();
+}
+
+function handleRetweetClick(tweetID) {
+  const targetTweetObj = flockData.filter(function (tweet) {
+    return tweet.uuid === tweetID;
+  });
 }
 
 function getFeedHtml() {
