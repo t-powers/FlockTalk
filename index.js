@@ -19,6 +19,7 @@ function handleLikeClicks(tweetID) {
   const targetTweetObj = flockData.filter(function (tweet) {
     return tweet.uuid === tweetID;
   })[0];
+
   if (targetTweetObj.isLiked) {
     targetTweetObj.likes--;
   } else {
@@ -32,7 +33,16 @@ function handleLikeClicks(tweetID) {
 function handleRetweetClick(tweetID) {
   const targetTweetObj = flockData.filter(function (tweet) {
     return tweet.uuid === tweetID;
-  });
+  })[0];
+
+  if (targetTweetObj.isRetweeted) {
+    targetTweetObj.retweets--;
+  } else {
+    targetTweetObj.retweets++;
+  }
+  targetTweetObj.isRetweeted = !targetTweetObj.isRetweeted;
+
+  renderFeed();
 }
 
 function getFeedHtml() {
