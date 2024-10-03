@@ -72,7 +72,7 @@ function getFeedHtml() {
                 <span class="tweet-detail">
                   <i class="
                     fa-solid fa-retweet" 
-                    data-share=${flock.uuid}>
+                    data-retweet=${flock.uuid}>
                   </i>
                   ${flock.retweets}
                 </span>
