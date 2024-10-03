@@ -31,7 +31,7 @@ function handleLikeClicks(tweetID) {
 }
 
 function handleRetweetClick(tweetId) {
-  const targetTweetObj = tweetsData.filter(function (tweet) {
+  const targetTweetObj = flockData.filter(function (tweet) {
     return tweet.uuid === tweetId;
   })[0];
 
