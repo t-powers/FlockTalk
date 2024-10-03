@@ -15,9 +15,9 @@ document.addEventListener("click", function (e) {
   }
 });
 
-function handleLikeClicks(tweetID) {
+function handleLikeClick(tweetId) {
   const targetTweetObj = flockData.filter(function (tweet) {
-    return tweet.uuid === tweetID;
+    return tweet.uuid === tweetId;
   })[0];
 
   if (targetTweetObj.isLiked) {
@@ -31,7 +31,7 @@ function handleLikeClicks(tweetID) {
 }
 
 function handleRetweetClick(tweetId) {
-  const targetTweetObj = tweetsData.filter(function (tweet) {
+  const targetTweetObj = flockData.filter(function (tweet) {
     return tweet.uuid === tweetId;
   })[0];
 
