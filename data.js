@@ -1,4 +1,4 @@
-export const tweetData = [
+export const flockData = [
   {
     handle: `@TrollBot66756542 💎`,
     profilePic: `images/troll.jpg`,

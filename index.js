@@ -1,9 +1,10 @@
-import { tweetsData } from "./data.js";
-const tweetInput = document.getElementById("tweet-input");
-const tweetBtn = document.getElementById("tweet-btn");
+import { flockData } from "./data.js";
 
-tweetBtn.addEventListener("click", function () {
-  console.log(tweetInput.value);
+const flockInput = document.getElementById("flock-input");
+const flockBtn = document.getElementById("flock-btn");
+
+flockBtn.addEventListener("click", () => {
+  console.log(flockInput.value);
 });
 
 document.addEventListener("click", function (e) {
@@ -12,17 +13,11 @@ document.addEventListener("click", function (e) {
   } else if (e.target.dataset.retweet) {
     handleRetweetClick(e.target.dataset.retweet);
   }
-  /*
-Challenge:
-1. Make this eventListener call "handleRetweetClick" 
-   when the retweet icon is clicked, passing in the
-   uuid from that tweet.  
-*/
 });
 
-function handleLikeClick(tweetId) {
-  const targetTweetObj = tweetsData.filter(function (tweet) {
-    return tweet.uuid === tweetId;
+function handleLikeClicks(tweetID) {
+  const targetTweetObj = flockData.filter(function (tweet) {
+    return tweet.uuid === tweetID;
   })[0];
 
   if (targetTweetObj.isLiked) {
@@ -31,7 +26,8 @@ function handleLikeClick(tweetId) {
     targetTweetObj.likes++;
   }
   targetTweetObj.isLiked = !targetTweetObj.isLiked;
-  render();
+
+  renderFeed();
 }
 
 function handleRetweetClick(tweetId) {
@@ -45,47 +41,40 @@ function handleRetweetClick(tweetId) {
     targetTweetObj.retweets++;
   }
   targetTweetObj.isRetweeted = !targetTweetObj.isRetweeted;
-  render();
-
-  /*
-Challenge:
-2. Find the retweeted tweet's object in tweetsData 
-   and save it to a const.
-3. Increment or decrement the retweet count of the 
-   tweet and flip its isRetweeted boolean.
-4. Call the render function.  
-*/
+  renderFeed();
 }
 
 function getFeedHtml() {
   let feedHtml = ``;
-
-  tweetsData.forEach(function (tweet) {
-    feedHtml += `
-<div class="tweet">
+  flockData.forEach(function (flock) {
+    feedHtml += `<div class="tweet">
     <div class="tweet-inner">
-        <img src="${tweet.profilePic}" class="profile-pic">
+        <img src="${flock.profilePic}" class="profile-pic"/>
         <div>
-            <p class="handle">${tweet.handle}</p>
-            <p class="tweet-text">${tweet.tweetText}</p>
+            <p class="handle">${flock.handle}</p>
+            <p class="tweet-text">${flock.tweetText}</p>
             <div class="tweet-details">
                 <span class="tweet-detail">
-                    <i class="fa-regular fa-comment-dots"
-                    data-reply="${tweet.uuid}"
-                    ></i>
-                    ${tweet.replies.length}
+                  <i class="
+                      fa-regular fa-comment-dots" 
+                      data-reply=${flock.uuid}>
+                  </i>
+                  ${flock.replies.length}
                 </span>
                 <span class="tweet-detail">
-                    <i class="fa-solid fa-heart"
-                    data-like="${tweet.uuid}"
-                    ></i>
-                    ${tweet.likes}
+                  <i 
+                    class="
+                      fa-solid fa-heart" 
+                      data-like=${flock.uuid}>
+                  </i>
+                  ${flock.likes}
                 </span>
                 <span class="tweet-detail">
-                    <i class="fa-solid fa-retweet"
-                    data-retweet="${tweet.uuid}"
-                    ></i>
-                    ${tweet.retweets}
+                  <i class="
+                    fa-solid fa-retweet" 
+                    data-share=${flock.uuid}>
+                  </i>
+                  ${flock.retweets}
                 </span>
             </div>   
         </div>            
@@ -96,8 +85,7 @@ function getFeedHtml() {
   return feedHtml;
 }
 
-function render() {
+function renderFeed() {
   document.getElementById("feed").innerHTML = getFeedHtml();
 }
-
-render();
+renderFeed();
