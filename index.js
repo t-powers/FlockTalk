@@ -51,6 +51,10 @@ function getFeedHtml() {
     if (flock.isLiked) {
       likeIconClass = "liked";
     }
+    let retweetIconClass = "";
+    if (flock.isRetweeted) {
+      retweetIconClass = "retweeted";
+    }
 
     feedHtml += `<div class="tweet">
     <div class="tweet-inner">
@@ -76,7 +80,7 @@ function getFeedHtml() {
                 </span>
                 <span class="tweet-detail">
                   <i class="
-                    fa-solid fa-retweet" 
+                    fa-solid fa-retweet ${retweetIconClass}" 
                     data-retweet=${flock.uuid}>
                   </i>
                   ${flock.retweets}
