@@ -47,6 +47,11 @@ function handleRetweetClick(tweetId) {
 function getFeedHtml() {
   let feedHtml = ``;
   flockData.forEach(function (flock) {
+    let likeIconClass = "";
+    if (flock.isLiked) {
+      likeIconClass = "liked";
+    }
+
     feedHtml += `<div class="tweet">
     <div class="tweet-inner">
         <img src="${flock.profilePic}" class="profile-pic"/>
@@ -64,7 +69,7 @@ function getFeedHtml() {
                 <span class="tweet-detail">
                   <i 
                     class="
-                      fa-solid fa-heart" 
+                      fa-solid fa-heart ${likeIconClass}" 
                       data-like=${flock.uuid}>
                   </i>
                   ${flock.likes}
