@@ -63,10 +63,10 @@ function getFeedHtml() {
         repliesHtml += `
         <div class="tweet-reply">
           <div class="tweet-inner">
-              <img src="PROFILE PIC" class="profile-pic">
+              <img src="${replies.profilePic}" class="profile-pic">
                   <div>
-                      <p class="handle">HANDLE</p>
-                      <p class="tweet-text">TWEET TEXT</p>
+                      <p class="handle">${replies.handle}</p>
+                      <p class="tweet-text">${replies.tweetText}</p>
                   </div>
           </div>
         </div>
@@ -74,7 +74,8 @@ function getFeedHtml() {
       });
     }
 
-    feedHtml += `<div class="tweet">
+    feedHtml += `
+<div class="tweet">
     <div class="tweet-inner">
         <img src="${flock.profilePic}" class="profile-pic"/>
         <div>
@@ -105,6 +106,9 @@ function getFeedHtml() {
                 </span>
             </div>   
         </div>            
+    </div>
+    <div id="replies-${flock.uuid}">
+        ${repliesHtml}
     </div>
 </div>
 `;
