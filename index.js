@@ -56,6 +56,24 @@ function getFeedHtml() {
       retweetIconClass = "retweeted";
     }
 
+    let repliesHtml = ``;
+
+    if (flock.replies.length > 0) {
+      flock.replies.forEach(function (replies) {
+        repliesHtml += `
+        <div class="tweet-reply">
+          <div class="tweet-inner">
+              <img src="PROFILE PIC" class="profile-pic">
+                  <div>
+                      <p class="handle">HANDLE</p>
+                      <p class="tweet-text">TWEET TEXT</p>
+                  </div>
+          </div>
+        </div>
+        `;
+      });
+    }
+
     feedHtml += `<div class="tweet">
     <div class="tweet-inner">
         <img src="${flock.profilePic}" class="profile-pic"/>
