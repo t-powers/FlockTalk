@@ -1,12 +1,13 @@
 import { flockData } from "./data.js";
 import { v4 as uuidv4 } from "uuid";
-console.log(uuidv4());
+;
 
 const flockInput = document.getElementById("flock-input");
 const flockBtn = document.getElementById("flock-btn");
 
 flockBtn.addEventListener("click", () => {
   console.log(flockInput.value);
+  console.log(uuidv4());
 });
 
 document.addEventListener("click", function (e) {
