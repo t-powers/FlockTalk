@@ -5,5 +5,5 @@
   "devDependencies": {
     "@types/uuid": "^10.0.0"
   },
-  "type":"module"
+  "type": "module"
 }
