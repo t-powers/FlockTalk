@@ -64,6 +64,7 @@ function handleFlockBtnClick(){
         uuid: uuidv4(),
     })
     render()
+    flockInput.value = ""
 }
 
 function getFeedHtml() {
