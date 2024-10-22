@@ -2,7 +2,7 @@ import { flockData } from "./data.js";
 import { v4 as uuidv4 } from "https://jspm.dev/uuid";
 
 
-const flockInput = document.getElementById("flock-input");
+
 
 document.addEventListener("click", function (e) {
   if (e.target.dataset.like) {
@@ -51,6 +51,8 @@ function handleReplyClick(replyId) {
 }
 
 function handleFlockBtnClick(){
+
+  const flockInput = document.getElementById("flock-input");
     
        flockData.unshift({
         handle: `@superfly`,
