@@ -1,13 +1,8 @@
 import { flockData } from "./data.js";
 import { v4 as uuidv4 } from "https://jspm.dev/uuid";
-console.log(uuidv4());
+
 
 const flockInput = document.getElementById("flock-input");
-const flockBtn = document.getElementById("flock-btn");
-
-flockBtn.addEventListener("click", () => {
-  console.log(flockInput.value);
-});
 
 document.addEventListener("click", function (e) {
   if (e.target.dataset.like) {
@@ -57,7 +52,7 @@ function handleReplyClick(replyId) {
 
 function handleFlockBtnClick(){
     
-    console.log(    
+       
         {
         handle: `@superfly`,
         profilePic: `images/scrimbalogo.png`,
@@ -68,7 +63,8 @@ function handleFlockBtnClick(){
         isLiked: false,
         isRetweeted: false,
         uuid: uuidv4(),
-    }, )
+    }
+}
 
 function getFeedHtml() {
   let feedHtml = ``;
