@@ -12,7 +12,7 @@ document.addEventListener("click", function (e) {
   } else if (e.target.dataset.reply) {
     handleReplyClick(e.target.dataset.reply);
   } else if (e.target.id === 'flock-btn'){
-    handleFlockBtnClick(e.target.id);
+    handleFlockBtnClick();
 
   }
 });
@@ -52,18 +52,18 @@ function handleReplyClick(replyId) {
 
 function handleFlockBtnClick(){
     
-       
-        {
+       flockData.unshift({
         handle: `@superfly`,
         profilePic: `images/scrimbalogo.png`,
         likes: 0,
         retweets: 0,
-        tweetText: tweetInput.value,
+        tweetText: flockInput.value,
         replies: [],
         isLiked: false,
         isRetweeted: false,
         uuid: uuidv4(),
-    }
+    })
+    render()
 }
 
 function getFeedHtml() {
@@ -138,7 +138,7 @@ function getFeedHtml() {
   return feedHtml;
 }
 
-function renderFeed() {
+function render() {
   document.getElementById("feed").innerHTML = getFeedHtml();
 }
-renderFeed();
+render();
